@@ -21,15 +21,15 @@ Human.init({
     primaryKey: true,
   },
   fname:{
-    type: DataTypes.VARCHAR(50),
+    type: DataTypes.TEXT(50),
     allowNull: false,
   },
   lname: {
-    type: DataTypes.VARCHAR(50),
+    type: DataTypes.TEXT(50),
     allowNull: false,
   },
   email: {
-    type: DataTypes.VARCHAR(100),
+    type: DataTypes.TEXT(100),
     allowNull: false,
   }
 })
@@ -48,11 +48,11 @@ Animal.init({
     primaryKey: false,
   },
   name:{
-    type: DataTypes.VARCHAR(50),
+    type: DataTypes.TEXT(50),
     allowNull:false
   },
   species:{
-    type: DataTypes.VARCHAR(50),
+    type: DataTypes.TEXT(50),
     allowNull: false,
   },
   birth_year:{
