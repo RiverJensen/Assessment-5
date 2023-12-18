@@ -13,25 +13,25 @@ SELECT SUM(cupcakes) AS sum FROM orders WHERE order = 'unprocessed';
 
 SELECT c.name AS name, COALESCE(SUM(o.num_cupcakes), 0) AS sum
 FROM cupcakes c
-LEFT JOIN orders o ON c.id = o.cupcake_id
-GROUP BY c.name
-ORDER BY c.name;
+LEFT JOIN orders o ON cupcakes.id = o.cupcake_id
+GROUP BY cupcakes.name
+ORDER BY cupcakes.name;
 
 
 
 -- QUESTION 5
 
-SELECT c.email AS email, COALESCE(SUM(o.num_cupcakes), 0) AS total
+SELECT cupcakes.email AS email, COALESCE(SUM(o.num_cupcakes), 0) AS total
 FROM customers c
-LEFT JOIN orders o ON c.id = o.customer_id
-GROUP BY c.email
+LEFT JOIN orders o ON cupcakes.id = o.customer_id
+GROUP BY cupcakes.email
 ORDER BY total DESC;
 
 
 -- QUESTION 6
 
-SELECT DISTINCT c.fname, c.lname, c.email
-FROM customers c
-JOIN orders o ON c.id = o.customer_id
-JOIN cupcakes cp ON o.cupcake_id = cp.id
-WHERE cp.name = 'funfetti' AND o.processed = TRUE;
+SELECT DISTINCT cupcakes.fname, cupcakes.lname, cupcakes.email
+FROM customers cupcakes
+JOIN orders o ON cupcakes.id = o.customer_id
+JOIN cupcakes cp ON o.cupcake_id = cupcakes.id
+WHERE cupcakes.name = 'funfetti' AND o.processed = TRUE;
